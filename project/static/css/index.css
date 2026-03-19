@@ -1,0 +1,150 @@
+
+/* hsl(136, 65%, 51%) */
+.homesection {
+    height: 100%;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    background-image: url('../Assets/background.webp');
+    backface-visibility: hidden;
+}
+
+.navbar {
+    width: 100%;
+    height: 60px;
+    margin: auto;
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 0px ;
+}
+
+.rightside {
+    width: 30%;
+    margin-right: 30px;
+}
+
+.rightside ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.rightside li {
+    margin-right: 15px;
+}
+
+.rightside button {
+    width: 100px;
+    height: 40px;
+    border-radius: 50px;
+    background-color: hsl(136, 65%, 51%);
+    border: 0px;
+}
+
+.rightside button a {
+    color: white;
+}
+
+.rightside a {
+    text-decoration: none;
+    color: black;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.leftside {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: medium;
+    font-weight: bolder;
+}
+
+
+.homecontent {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.cards {
+    width: 85%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.card {
+    width: 24%;
+    box-sizing: border-box;
+    background-color: whitesmoke;
+    padding: 17px;
+    border-radius: 7px;
+}
+
+.card button {
+    width: 100px;
+    height: 40px;
+    border-radius: 50px;
+    background-color: hsl(136, 65%, 51%);
+    border: 0px;
+    font-size: medium;
+}
+
+.card button a {
+    color: white;
+    text-decoration: none;
+}
+
+.card img {
+    width: 100%;
+    height: 161.5px;
+}
+
+.homecontent h2 {
+    width: 10%;
+    height: 50px;
+    background-color: hsl(136, 65%, 51%);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0px;
+    position: relative;
+}
+
+.homecontent h2::after {
+    content: "";
+    width: 0px;
+    height: 0px;
+    background-color: transparent;
+    border: 35.9px solid  ;
+    border-color: transparent hsl(136, 65%, 51%)  transparent transparent ;
+    position: absolute;
+    right: -35px;
+    top: 14.5px;
+    transform: rotate(-45deg);
+}
+
+.homecontent h2::before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    background-color: transparent;
+    border: 35.9px solid  ;
+    border-color: transparent transparent transparent hsl(136, 65%, 51%) ;
+    position: absolute;
+    left: -35.1px;
+    top: 14.5px;
+    transform: rotate(45deg);
+}
+

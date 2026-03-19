@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% extends 'user.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="{% static 'css/edit.css' %}" />
+    <title>Edit</title>
+  </head>
+  <body>
+    <div class="edit-section">
+      <div class="edit-content">
+        <h1>Edit Account</h1>
+        <div class="form-content">
+          <img src="{% static 'Assets/background.webp' %}" alt="smart farm" />
+          <form action="edit" method="POST">
+            {% csrf_token %}
+            <label for="name">User Name</label>
+            <input id="name" type="text" name="name" value="{{user.name}}"/>
+            {% if messages %}
+              {% for message in messages %}
+                <p style="color: red; text-decoration: underline; ">{{ message }}</p>
+              {% endfor %}
+            {% endif %}
+            <label for="pass">Password</label>
+            <input type="password" name="password" id="pass" value="{{user.password}}"/>
+
+            <label for="add">Address</label>
+            <input type="text" name="address" id="add" value="{{user.address}}"/>
+
+            <label for="govrn">Governorate</label>
+            <select name="governorate" id="">
+              <option value="Cairo">Cairo</option>
+              <option value="Giza">Giza</option>
+              <option value="Alexandria">Alexandria</option>
+              <option value="Aswan">Aswan</option>
+              <option value="Asyut">Asyut</option>
+              <option value="Beheira">Beheira</option>
+              <option value="Beni Suef">Beni Suef</option>
+              <option value="Dakahlia">Dakahlia</option>
+              <option value="Damietta">Damietta</option>
+              <option value="Faiyum">Faiyum</option>
+              <option value="Gharbia">Gharbia</option>
+              <option value="Ismailia">Ismailia</option>
+              <option value="Kafr El Sheikh">Kafr El Sheikh</option>
+              <option value="Luxor">Luxor</option>
+              <option value="Matruh">Matruh</option>
+              <option value="Minya">Minya</option>
+              <option value="Monufia">Monufia</option>
+              <option value="New Valley">New Valley</option>
+              <option value="North Sinai">North Sinai</option>
+              <option value="Port Said">Port Said</option>
+              <option value="Qalyubia">Qalyubia</option>
+              <option value="Qena">Qena</option>
+              <option value="Red Sea">Red Sea</option>
+              <option value="Sharqia">Sharqia</option>
+              <option value="Sohag">Sohag</option>
+              <option value="South Sinai">South Sinai</option>
+              <option value="Suez">Suez</option>
+          </select>
+
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+{% endblock content %}

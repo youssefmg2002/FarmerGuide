@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% extends 'admin.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/inventory.css' %}">
+    <title>Inventory</title>
+</head>
+<body>
+    <table class="">
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Product name</th>
+                <th>Product Price</th>
+                <th>Product count</th>
+                <!-- <th></th> -->
+            </tr>
+
+        </thead>
+
+
+        <tbody id="tablebody">
+            {% for x in products %}
+            <tr>
+                <td>{{ x.productid }}</td>
+                <td>{{ x.productName }}</td>
+                <td>{{ x.productPrice }}</td>
+                <td>{{ x.productnum }}</td>
+                <!-- <td><a href="accept/{{ x.id }}" style="text-decoration: none;">Accept</a></td> -->
+            </tr>
+            {% endfor %}
+            
+        </tbody>
+    </table>
+</body>
+</html>
+{% endblock content %}

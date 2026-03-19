@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% extends 'user.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders</title>
+    <link rel="stylesheet" href="{% static 'css/my_orders.css' %}">
+</head>
+<body>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Product Price</th>
+                <th>Product count</th>
+                <th>Total Price</th>
+                <th>Is accepted ?</th>
+                <th>Sales outlet address</th>
+            </tr>
+
+        </thead>
+
+
+    <tbody id="tablebody">
+        {% for x in order %}
+        <tr>
+            <td>{{ x.id }}</td>
+            <td>{{ x.productid }}</td>
+            <td>{{ x.productName }}</td>
+            <td>{{ x.productprice }}</td>
+            <td>{{ x.productNum }}</td>
+            <td>{{ x.totalPrice }}</td>
+            {% if x.accepted %}
+                <td>Accepted</td>
+                <td>{{ x.adminAddress }}</td>
+            {% else %}
+                <td>Not Accepted yet</td>
+                <td></td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </tbody>
+
+
+
+    </table>
+
+
+
+    <script src="../static/js/all.min.js"></script>
+    <script src="../static/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/js/bootstrap.bundle.min.js.map"></script>
+</body>
+</html>
+{% endblock content %}

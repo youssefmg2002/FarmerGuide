@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+{% extends 'user.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <title>Farmer Guide</title>
+  </head>
+  <body>
+    <div class="homesection" >
+      <div class="homecontent">
+        <h2>Our Models</h2>
+        <div class="cards">
+          <div class="card">
+            <img src="{% static 'Assets/imageModel.jpg' %}" alt="disease leaf" />
+            <h3>Plant Disease Model</h3>
+            <p>
+              This Model For Classify the plant Disease and make recomdation for
+              organic and non organic solution.
+            </p>
+            <button>
+              <a href="{% url 'image' %}">Apply</a>
+            </button>
+          </div>
+          <div class="card">
+            <img src="{% static 'Assets/soundModel.jpg' %}" alt="Ruined plant leaf" />
+            <h3>Sound Detection Model</h3>
+            <p>
+              This Model For detect the type of Insect that plant have to know
+              how treat with the Insect.
+            </p>
+            <button>
+              <a href="{% url 'sound' %}">Apply</a>
+            </button>
+          </div>
+          <div class="card">
+            <img src="{% static 'Assets/soilModel.jpg' %}" alt="soil manegment" />
+            <h3>Soil Mangement Model</h3>
+            <p>
+              This Model for make prediction for the best plant that soil can
+              Farmer Plants in this soil.
+            </p>
+            <button>
+              <a href="{% url 'soil' %}">Apply</a>
+            </button>
+          </div>
+          <div class="card">
+            <img src="{% static 'Assets/SegmentationModel.jpg' %}" alt="disease leaf area" />
+            <h3>Segmentation Modle</h3>
+            <p>
+              This Model for Detect the plant disease area and calculate the
+              percentage of disease on leaf.
+            </p>
+            <button>
+              <a href="{% url 'segment' %}">Apply</a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<!-- <h1></h1>
+<div class="section">
+  <h2>Models</h2>
+  <div class="cards">
+    <div class="card">
+      <img src="" alt="" />
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio
+        tempore iste ullam eius dolor, ex doloribus consequatur cupiditate
+        excepturi architecto quos perspiciatis culpa a molestias?
+      </p>
+      <button>Apply</button>
+    </div>
+
+    <div class="card">
+      <img src="" alt="" />
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio
+        tempore iste ullam eius dolor, ex doloribus consequatur cupiditate
+        excepturi architecto quos perspiciatis culpa a molestias?
+      </p>
+      <button></button>
+    </div>
+
+    <div class="card">
+      <img src="" alt="" />
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio
+        tempore iste ullam eius dolor, ex doloribus consequatur cupiditate
+        excepturi architecto quos perspiciatis culpa a molestias?
+      </p>
+      <button></button>
+    </div>
+
+    <div class="card">
+      <img src="" alt="" />
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio
+        tempore iste ullam eius dolor, ex doloribus consequatur cupiditate
+        excepturi architecto quos perspiciatis culpa a molestias?
+      </p>
+      <button></button>
+    </div>
+  </div>
+</div> -->
+{% endblock content %}

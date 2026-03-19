@@ -1,0 +1,31 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/admin.css' %}" />
+
+<div class="navbar">
+  <div class="leftside">
+    <h2>Farmer Guide</h2>
+  </div>
+  <div class="rightside">
+    <ul>
+      <li>
+        <a href="{% url 'orders' %}">Incoming Orders</a>
+      </li>
+      <li>
+        <a href="{% url 'orders_accepted' %}">Accepted Orders</a>
+      </li>
+      <li>
+        <a href="{% url 'inventory' %}">Inventory</a>
+      </li>
+      <li>
+        <button>
+          <a href="{% url 'logout' %}">Logout</a>
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+
+{% block content %}
+{% endblock content %}

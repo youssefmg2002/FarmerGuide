@@ -1,0 +1,42 @@
+{% load static %}
+<link rel="stylesheet" href="{%static 'css/user.css'%}" />
+
+<div class="navbar">
+  <div class="leftside">
+    <h2>Farmer Guide</h2>
+  </div>
+  <div class="rightside">
+    <ul>
+      <li>
+        <a href="{% url 'index' %}">Home</a>
+      </li>
+      {% if request.session.username %}
+      <li>
+        <a href="{% url 'my_orders' %}">Orders</a>
+      </li>
+      <li>
+        <a href="{% url 'edit' %}">Account</a>
+      </li>
+      <li>
+        <button>
+          <a href="{% url 'logout' %}">Logout</a>
+        </button>
+      </li>
+      {% else %}
+      <li>
+        <button>
+          <a href="{% url 'login' %}">Login</a>
+        </button>
+      </li>
+      <li>
+        <button>
+          <a href="{% url 'register' %}">Register</a>
+        </button>
+      </li>
+      {% endif %}
+    </ul>
+  </div>
+</div>
+
+{% block content %}
+{% endblock content %}

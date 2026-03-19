@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% extends 'user.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="{% static 'css/soundModel.css' %}" />
+    <title>Sound Model</title>
+  </head>
+  <body>
+    <div class="sound-model-section">
+      <div class="sound-model-content">
+        <h1>Sound Detection Model</h1>
+        <div class="form-content">
+          <img
+            src="{% static 'Assets/soundModel.jpg' %}"
+            alt="detect type of insect on leaf"
+          />
+          <form action="sound" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="sound">Upload The Sound</label>
+            <input type="file" name="sound" id="sound"/>
+
+            <button type="submit">Upload</button>
+
+            <p class="disease">{{insectType}}</p>
+          </form>
+        </div>
+        
+      </div>
+    </div>
+  </body>
+</html>
+{% endblock content %}

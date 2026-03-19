@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% extends 'user.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+    <title>Login</title>
+  </head>
+  <body>
+    <div class="login-section">
+      <div class="login-content">
+        <h1>Login</h1>
+        <div class="form-content">
+          <img src="{% static 'Assets/background.webp' %}" alt="smart farm" />
+          <form action="login" method="POST">
+            {% csrf_token %}
+            {% if messages %}
+              {% for message in messages %}
+                <p style="color: red; text-decoration: underline; ">{{ message }}</p>
+              {% endfor %}
+            {% endif %}
+            <label for="name">User Name</label>
+            <input id="name" type="text" name="username" required/>
+
+            <label for="pass">Password</label>
+            <input id="pass" type="password" name="password" required/>
+
+            <button type="submit">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+{% endblock content %}

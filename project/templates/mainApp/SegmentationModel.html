@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% extends 'user.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="{% static 'css/segmentationModel.css' %}" />
+    <title>Segmentation Model</title>
+  </head>
+  <body>
+    <div class="segmentation-model-section">
+      <div class="segmentation-model-content">
+        <h1>Segmentation Model</h1>
+        <div class="form-content">
+          <img
+            src="{% static 'Assets/SegmentationModel.jpg' %}"
+            alt="detect area of disease on leaf"
+          />
+          <form action="segment" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="image">Upload The Image</label>
+            <input
+              type="file" accept="image/*" name="image" id="image"/>
+            <button type="submit">Upload</button>
+          </form>
+        </div>
+        <p class="disease">{{ percentage_disease }}</p>
+      </div>
+    </div>
+  </body>
+</html>
+{% endblock content %}

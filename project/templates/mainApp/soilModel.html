@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% extends 'user.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="{% static 'css/soilModel.css' %}" />
+    <title>Soil Mangement</title>
+  </head>
+  <body>
+    <div class="soil-model-section">
+      <div class="soil-model-content">
+        <h1>Soil Mangement Model</h1>
+        <div class="form-content">
+          <img src="{% static 'Assets/soilModel.jpg' %}" alt="detect type of plant on soil"/>
+          <form action="soil" method="POST">
+            {% csrf_token %}
+            <label for="nirtro">Nitrogin <b>(N)</b></label>
+            <input type="number" name="nitrogin" id="nirtro" required/>
+
+            <label for="phos">Phosphorus <b>(P)</b></label>
+            <input type="number" name="phosphorus" id="phos" required/>
+
+            <label for="pota">Potassium <b>(K)</b></label>
+            <input type="number" name="potassium" id="pota" required/>
+
+            <button type="submit">Predict</button>
+          </form>
+        </div>
+        <p class="disease">{{crop}}</p>
+      </div>
+    </div>
+  </body>
+</html>
+{% endblock content %}

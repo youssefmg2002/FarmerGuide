@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% extends 'admin.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+    <link rel="stylesheet" href="{% static 'css/orders.css' %}">
+</head>
+<body>
+    <h3>Incoming Orders</h3>
+    {% if messages %}
+        {% for message in messages %}
+        <p style="color: red; text-decoration: underline; ">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Product Price</th>
+                <th>Product count</th>
+                <th>Total Price</th>
+                <th></th>
+            </tr>
+
+        </thead>
+
+
+    <tbody id="tablebody">
+        {% for x in orders %}
+        <tr>
+            <td>{{ x.id }}</td>
+            <td>{{ x.userName }}</td>
+            <td>{{ x.productid }}</td>
+            <td>{{ x.productName }}</td>
+            <td>{{ x.productprice }}</td>
+            <td>{{ x.productNum }}</td>
+            <td>{{ x.totalPrice }}</td>
+            <td><a href="accept/{{ x.id }}" style="text-decoration: none;">Accept</a></td>
+        </tr>
+        {% endfor %}
+        
+    </tbody>
+
+
+
+    </table>
+
+
+
+    <script src="../static/js/all.min.js"></script>
+    <script src="../static/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/js/bootstrap.bundle.min.js.map"></script>
+</body>
+</html>
+{% endblock content %}

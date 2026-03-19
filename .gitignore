@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+
+venv/
+env/
+
+node_modules/
+
+*.pkl
+*.joblib
+*.h5
+*.pt
+
+*.log
+*.sqlite3

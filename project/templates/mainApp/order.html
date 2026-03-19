@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% extends 'user.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <title>Order</title>
+    <link rel="stylesheet" href="{% static 'css/result.css' %}" />
+  </head>
+  <body>
+    <div class="image-model-section">
+      <div class="image-model-content">
+        <h1>Order</h1>
+        <div class="form-content">
+          <img src="{% static 'Assets/imageModel.jpg' %}" alt="detect leaf disease" />
+          <form action="order" method="POST">
+            {% csrf_token %}
+
+            <label for="add">Order ID</label>
+            <input style="margin-bottom: 5px;" type="number" name="orderid" id="id" disabled value="{{orderr.id}}"/>
+
+            <p class="disease">Product ID : {{ orderr.productid }}</p>
+
+            <p class="solution">
+              Product name: <br>{{ orderr.productName }} 
+            </p>
+            <p class="solution">
+                Product price: <br>{{ orderr.productprice }}
+            </p>
+            
+            <br>
+
+            <label for="add">Product count</label>
+            <input style="margin-bottom: 5px;" type="number" name="pronum" id="count" required/>
+            <button type="submit">Order</button>
+            <a style="text-decoration: none;
+            color: rgb(255, 0, 0);
+            font-size: medium;
+            text-align: center;
+            margin-bottom: 5px;
+            margin-top: 5px;" href="cancelOrder/{{orderr.id}}">Cancel</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+{% endblock content %}

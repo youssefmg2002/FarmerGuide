@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% extends 'user.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <title>Image Model</title>
+    <link rel="stylesheet" href="{% static 'css/imageModel.css' %}" />
+  </head>
+  <body>
+    <div class="image-model-section">
+      <div class="image-model-content">
+        <h1>Plant Disease Model</h1>
+        <div class="form-content">
+          <img src="{% static 'Assets/imageModel.jpg' %}" alt="detect leaf disease" />
+          <form action="image" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="image">Upload The Image</label>
+            <input
+              type="file"
+              accept="image/*"
+              name="image"
+              id="image"
+            />
+            <button type="submit">Upload</button>
+
+            {% if messages %}
+              {% for message in messages %}
+                <p class="disease"> {{ 'diseasename' }} </p>
+                <p class="solution" style="color: red; text-decoration: underline; ">{{ message }}</p>
+              {% endfor %}
+
+            {% elif disease %}
+              <p class="disease">The disease : {{ disease.diseaseName }} </p>
+              <p class="solution">
+                Organic: <br>{{ disease.organic }} 
+              </p>
+              <p class="solution">
+                Chemical: <br>{{ disease.chemical }}
+              </p>
+
+              <a style="
+                text-decoration: none;
+                color: rgb(16, 251, 8);
+                font-size: medium;
+                text-align: center;
+                margin-bottom: 5px;
+              " href="makeOrder/{{ disease.productid }}"><b>Make an order</b></a>
+            {% endif %}
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+{% endblock content %}
